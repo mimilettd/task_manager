@@ -1,3 +1,5 @@
+require 'pry'
+
 require_relative '../models/task.rb'
 
 class TaskManagerApp < Sinatra::Base
@@ -26,5 +28,13 @@ class TaskManagerApp < Sinatra::Base
   get '/tasks/:id' do
     @task = Task.find(params[:id])
     erb :show
+  end
+
+  get '/easteregg' do
+    erb :easteregg
+  end
+
+  get '/showmethetask' do
+    redirect '/tasks'
   end
 end
